@@ -10,6 +10,8 @@ target_link_libraries(distribute-opt
   ${dialect_libs}
   ${conversion_libs}
   ${extension_libs}
+  TransformExtension
+  TransformExtOps
   MLIROptLib
   MLIRTransforms
   MLIRTransformUtils

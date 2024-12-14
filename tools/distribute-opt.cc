@@ -7,6 +7,7 @@
 #include "mlir/Tools/mlir-opt/MlirOptMain.h"
 
 namespace mlir {
+  void registerTransformExtension(DialectRegistry& registry);
 namespace test{
   void registerTestMeshReshardingSpmdizationPass();
 }
@@ -24,6 +25,7 @@ int main(int argc, char **argv) {
   // Register all MLIR core dialects.
   registerAllDialects(registry);
   mlir::registerAllExtensions(registry);
+  mlir::registerTransformExtension(registry);
   // Register dialects in buddy-mlir project.
   // clang-format off
   // clang-format on
