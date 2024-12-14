@@ -7,14 +7,15 @@
 #include "mlir/Tools/mlir-opt/MlirOptMain.h"
 
 namespace mlir {
-  void registerTransformExtension(DialectRegistry& registry);
-namespace test{
-  void registerTestMeshReshardingSpmdizationPass();
+void registerTransformExtension(DialectRegistry &registry);
+namespace test {
+void registerTestMeshReshardingSpmdizationPass();
+}
+namespace meshExt {
+void registerMeshExtTransformExtension(DialectRegistry &registry);
 }
 
-namespace distribute {
-
-} // namespace protea
+namespace distribute {} // namespace distribute
 } // namespace mlir
 
 int main(int argc, char **argv) {
@@ -26,6 +27,7 @@ int main(int argc, char **argv) {
   registerAllDialects(registry);
   mlir::registerAllExtensions(registry);
   mlir::registerTransformExtension(registry);
+  mlir::meshExt::registerMeshExtTransformExtension(registry);
   // Register dialects in buddy-mlir project.
   // clang-format off
   // clang-format on
